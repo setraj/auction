@@ -13,7 +13,7 @@ Steps to run:
    go run main.go
 - greedy/bidder1        	
    go run main.go
-- greedy/bidder1        	
+- greedy/bidder2        	
    go run main.go   
 
 Endpoints:
