@@ -12,7 +12,7 @@ Current state of development
 - Information is not persistant.
 - Auctioner needs to be up & running before bidders.
 - 1 Auctioner & 3 Bidders. (Bidders can be increased easily).
-- sychroization is currenty handeled through channels. 
+- Synchronization is currenty handeled through channels. 
 
 Steps to run:
 - greedy/auctioner 
