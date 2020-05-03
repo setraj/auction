@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"log"
 	"math/rand"
 	"net/http"
@@ -42,14 +43,14 @@ func register() {
 		//ID:       os.Getenv("ID"),
 		//Endpoint: "http://localhost:" + os.Getenv("PORT"),
 		ID:       "alpha",
-		Endpoint: "http://localhost:8081/",
+		Endpoint: fmt.Sprintf("http://%s:8081/",os.Getenv("bidder_name")),
 	}
 	data, err := json.Marshal(bidder)
 	if err != nil {
 		log.Fatal("Failed to marshal")
 	}
 	//req, err := http.NewRequest(http.MethodPost, os.Getenv("A_URL"), bytes.NewReader(data))
-	req, err := http.NewRequest(http.MethodPost, "http://localhost:8080/bidder", bytes.NewReader(data))
+	req, err := http.NewRequest(http.MethodPost, "http://auctioner:8080/bidder", bytes.NewReader(data))
 	if err != nil {
 		log.Fatal(err.Error())
 	}

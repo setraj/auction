@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+
+  auctioner:
+    build:
+      dockerfile: auction.dockerfile
+      context: .
+    ports:
+      - 8080:8080
+    networks:
+      - auction
+
+  bidder_1:
+    build:
+      dockerfile: bidder.dockerfile
+      context: .
+    ports:
+      - 9001:8081
+    depends_on:
+      - auctioner
+    environment:
+      - bidder_name=bidder_1
+    networks:
+      - auction
+
+networks:
+  auction:
